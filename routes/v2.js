@@ -8,6 +8,7 @@ const Post    = require('./v2/post');
 const Block   = require('./v2/block');
 const Profit  = require('./v2/profit');
 const Transfer = require('./v2/transfer');
+const Csaf    = require('./v2/csaf');
 
 import Secure from '../lib/Secure';
 
@@ -35,6 +36,8 @@ router
   .post ('/transfer',                Secure.validQueue,          Transfer.transfer)
   .post('/posts',                    Secure.validQueue,          Post.create_post) 
 
+  .post('/collectCsaf',              Secure.validQueue,          Csaf.collect_csaf)
+  
   // .get ('/profits/post/:post_id',         Profit.by_post)
   // .get ('/profits/poster/:poster_id',     Profit.by_poster)
   // .get ('/profits/platform',              Profit.by_platform)
